@@ -40,11 +40,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: coverage/
-
   test:
     name: "Test"
     needs: [build]
@@ -67,6 +62,11 @@ jobs:
 
       - name: Test
         run: pnpm coverage
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
 
   sonar-scan:
     name: "SonarQube Scan"
