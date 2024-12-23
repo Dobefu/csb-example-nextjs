@@ -1,3 +1,10 @@
-# Ignore artifacts.
-build
-coverage
+# Artifacts.
+build/
+coverage/
+
+# GitHub config files.
+.github/
+
+# Package manager lockfiles.
+pnpm-lock.yaml
+package-lock.yml
