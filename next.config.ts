@@ -8,9 +8,9 @@ module.exports = async () => {
     output: 'standalone',
     reactStrictMode: true,
     poweredByHeader: false,
-    i18n: {
-      defaultLocale,
-      locales,
+    env: {
+      DEFAULT_LOCALE: defaultLocale ?? 'en',
+      LOCALES: locales.join(',') ?? ['en'],
     },
     async headers() {
       return [
