@@ -18,8 +18,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Enable PNPM
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Build
-        run: ls # Placeholder for now
+        run: pnpm build
 
   test:
     name: "Test"
