@@ -15,6 +15,7 @@ export default defineConfig({
         'next.config.ts',
         'postcss.config.mjs',
         'tailwind.config.ts',
+        'src/fetch-locales.ts',
         '**/layout.tsx',
       ],
       thresholds: {
