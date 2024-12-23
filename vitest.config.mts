@@ -9,7 +9,7 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'v8',
-      reporter: ['text', 'lcov'],
+      reporter: ['text', 'lcov', 'html'],
       exclude: [
         ...coverageConfigDefaults.exclude,
         'next.config.ts',
