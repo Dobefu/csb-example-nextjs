@@ -9,7 +9,13 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'v8',
-      exclude: [...coverageConfigDefaults.exclude, '**/layout.tsx'],
+      exclude: [
+        ...coverageConfigDefaults.exclude,
+        'next.config.ts',
+        'postcss.config.mjs',
+        'tailwind.config.ts',
+        '**/layout.tsx',
+      ],
       thresholds: {
         lines: 80,
         functions: 80,
