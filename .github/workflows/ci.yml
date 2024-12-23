@@ -62,6 +62,9 @@ jobs:
       - name: Enable PNPM
         run: corepack enable
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Test
         run: pnpm coverage
 
