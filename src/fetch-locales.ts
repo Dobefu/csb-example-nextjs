@@ -48,8 +48,8 @@ export async function fetchLocales(): Promise<{
   let defaultLocale = 'en'
 
   const locales = data.locales.map((locale) => {
-    if (locale.fallback_locale) {
-      defaultLocale = locale.fallback_locale
+    if (!locale.fallback_locale) {
+      defaultLocale = locale.code
     }
 
     return locale.code
