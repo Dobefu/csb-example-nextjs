@@ -1,4 +1,3 @@
-
 name: CI
 
 on:
@@ -56,7 +55,7 @@ jobs:
       - uses: actions/download-artifact@v4
 
       - name: Test
-        run: ls # Placeholder for now
+        run: pnpm coverage
 
   sonar-scan:
     name: "SonarQube Scan"
