@@ -28,6 +28,7 @@ export default function LocaleSwitcher() {
 
   return (
     <select
+      aria-label="Language"
       className="rounded-lg border p-2 shadow-inner"
       defaultValue={currentLocale}
       onChange={onLocaleSelected}
