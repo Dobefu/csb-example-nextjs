@@ -22,6 +22,7 @@ describe('LocaleSwitcher', () => {
     render(<LocaleSwitcher />)
 
     fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
+    expect(screen.getAllByRole('option').length).toBe(2)
   })
 
   it('Redirects with a query parameter', async () => {
@@ -30,6 +31,7 @@ describe('LocaleSwitcher', () => {
     render(<LocaleSwitcher />)
 
     fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
+    expect(screen.getAllByRole('option').length).toBe(2)
   })
 
   it('Falls back on English without any locales', async () => {
