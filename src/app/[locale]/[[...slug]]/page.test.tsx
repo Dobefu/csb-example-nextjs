@@ -10,13 +10,13 @@ describe('Home', () => {
   it('Renders normally', async () => {
     render(
       await Home({
-        params: { locale: 'en', slug: [''] } as unknown as Promise<
+        params: { locale: 'en', slug: ['test'] } as unknown as Promise<
           (typeof Home)['arguments']
         >,
       }),
     )
 
-    expect(screen.getByRole('main')).toBeDefined()
+    expect(screen.getByText('/test')).toBeDefined()
   })
 
   it('Renders without all optional parameters', async () => {
@@ -28,6 +28,6 @@ describe('Home', () => {
       }),
     )
 
-    expect(screen.getByRole('main')).toBeDefined()
+    expect(screen.getByText('/')).toBeDefined()
   })
 })
