@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import getConfig from 'next/config'
 import { Geist } from 'next/font/google'
 import './globals.css'
+import Providers from './providers'
 
 const geistSans = Geist({
   display: 'swap',
@@ -32,15 +33,17 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} flex min-h-full flex-col font-sans antialiased`}
       >
-        <div className="flex flex-1 flex-col justify-between gap-4">
-          <Header />
+        <Providers locale={locale}>
+          <div className="flex flex-1 flex-col justify-between gap-4">
+            <Header />
 
-          <main className="flex-1 px-4" id="main-content">
-            {children}
-          </main>
+            <main className="flex-1 px-4" id="main-content">
+              {children}
+            </main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   )
