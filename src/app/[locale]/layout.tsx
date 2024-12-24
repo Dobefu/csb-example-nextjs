@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
@@ -29,6 +30,8 @@ export default async function RootLayout({
         <Header />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   )
