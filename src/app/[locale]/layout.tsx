@@ -28,12 +28,16 @@ export default async function RootLayout({
   const locale = (await params).locale
 
   return (
-    <html lang={locale}>
-      <body className={`${geistSans.variable} font-sans antialiased`}>
-        <div className="flex flex-col gap-4 p-4">
+    <html className="h-full" lang={locale}>
+      <body
+        className={`${geistSans.variable} flex min-h-full flex-col font-sans antialiased`}
+      >
+        <div className="flex flex-1 flex-col justify-between gap-4">
           <Header />
 
-          {children}
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
 
           <Footer />
         </div>

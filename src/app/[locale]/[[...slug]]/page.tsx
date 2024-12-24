@@ -3,5 +3,5 @@ export default async function Home({
 }: Readonly<{
   params: Promise<{ locale: string; slug?: string[] }>
 }>) {
-  return <main>{`/${((await params).slug ?? []).join('/')}`}</main>
+  return <>{`/${((await params).slug ?? []).join('/')}`}</>
 }
