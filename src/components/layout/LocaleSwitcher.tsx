@@ -29,7 +29,9 @@ export default function LocaleSwitcher() {
   return (
     <select defaultValue={currentLocale} onChange={onLocaleSelected}>
       {locales.map((locale: { code: string; name: string }) => (
-        <option key={locale.code}>{locale.name}</option>
+        <option key={locale.code} value={locale.code}>
+          {locale.name}
+        </option>
       ))}
     </select>
   )

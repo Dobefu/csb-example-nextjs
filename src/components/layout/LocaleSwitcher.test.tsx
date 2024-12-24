@@ -13,9 +13,7 @@ describe('LocaleSwitcher', () => {
   it('Renders normally', async () => {
     render(<LocaleSwitcher />)
 
-    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe(
-      'English',
-    )
+    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('en')
     expect(screen.getAllByRole('option').length).toBe(2)
   })
 
