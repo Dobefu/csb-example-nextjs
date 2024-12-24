@@ -6,13 +6,16 @@ describe('LocaleSwitcher', () => {
   afterEach(() => {
     cleanup()
     process.env.MOCK_PATHNAME = '/'
-    process.env.LOCALES = 'en,nl'
+    process.env.LOCALES =
+      '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
   })
 
   it('Renders normally', async () => {
     render(<LocaleSwitcher />)
 
-    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('en')
+    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe(
+      'English',
+    )
     expect(screen.getAllByRole('option').length).toBe(2)
   })
 
@@ -32,14 +35,5 @@ describe('LocaleSwitcher', () => {
 
     fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
     expect(screen.getAllByRole('option').length).toBe(2)
-  })
-
-  it('Falls back on English when locales is empty', async () => {
-    delete process.env.LOCALES
-
-    render(<LocaleSwitcher />)
-
-    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('en')
-    expect(screen.getAllByRole('option').length).toBe(1)
   })
 })

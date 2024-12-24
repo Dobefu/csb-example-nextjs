@@ -1,6 +1,7 @@
 import { vi } from 'vitest'
 
-process.env.LOCALES = 'en,nl'
+process.env.LOCALES =
+  '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
 
 vi.mock('next/config', () => ({
   default: () => {

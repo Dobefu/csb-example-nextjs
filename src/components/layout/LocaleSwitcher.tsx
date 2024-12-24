@@ -6,7 +6,7 @@ import { ChangeEvent, useCallback, useContext } from 'react'
 
 export default function LocaleSwitcher() {
   const currentLocale = useContext(LocaleContext)
-  const locales = (process.env.LOCALES ?? 'en').split(',')
+  const locales = JSON.parse(process.env.LOCALES!)
 
   const router = useRouter()
   const pathname = usePathname()
@@ -28,8 +28,8 @@ export default function LocaleSwitcher() {
 
   return (
     <select defaultValue={currentLocale} onChange={onLocaleSelected}>
-      {locales.map((locale) => (
-        <option key={locale}>{locale}</option>
+      {locales.map((locale: { code: string; name: string }) => (
+        <option key={locale.code}>{locale.name}</option>
       ))}
     </select>
   )

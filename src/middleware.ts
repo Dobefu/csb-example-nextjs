@@ -2,11 +2,12 @@ import { type NextRequest, NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const locale = process.env.DEFAULT_LOCALE ?? 'en'
-  const locales = (process.env.LOCALES ?? 'en').split(',')
+  const locales = JSON.parse(process.env.LOCALES!)
 
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
+    (locale: { code: string; name: string }) =>
+      pathname.startsWith(`/${locale.code}/`) || pathname === `/${locale.code}`,
   )
 
   if (pathnameHasLocale) return NextResponse.next()

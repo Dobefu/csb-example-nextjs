@@ -10,7 +10,8 @@ describe('middleware', () => {
   afterEach(() => {
     cleanup()
     redirectSpy.mockReset()
-    process.env.LOCALES = 'en,nl'
+    process.env.LOCALES =
+      '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
   })
 
   it("doesn't redirect for valid locales", () => {
@@ -28,12 +29,5 @@ describe('middleware', () => {
         headers: {},
       }),
     )
-  })
-
-  it('Falls back on English when locales is empty', async () => {
-    delete process.env.LOCALES
-
-    middleware(new NextRequest(new URL('http://localhost:3000/en')))
-    expect(redirectSpy).not.toHaveBeenCalled()
   })
 })

@@ -10,7 +10,7 @@ module.exports = async () => {
     poweredByHeader: false,
     env: {
       DEFAULT_LOCALE: defaultLocale ?? 'en',
-      LOCALES: locales.join(',') ?? ['en'],
+      LOCALES: JSON.stringify(locales),
     },
     publicRuntimeConfig: {
       appName: process.env.APP_NAME ?? '',
