@@ -1,8 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server'
+import getLocales from './utils/get-locales'
 
 export function middleware(request: NextRequest) {
   const locale = process.env.DEFAULT_LOCALE ?? 'en'
-  const locales = JSON.parse(process.env.LOCALES!)
+  const locales = getLocales()
 
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(

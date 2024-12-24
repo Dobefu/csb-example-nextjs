@@ -1,12 +1,13 @@
 'use client'
 
 import { LocaleContext } from '@/app/[locale]/providers'
+import getLocales from '@/utils/get-locales'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, useCallback, useContext } from 'react'
 
 export default function LocaleSwitcher() {
   const currentLocale = useContext(LocaleContext)
-  const locales = JSON.parse(process.env.LOCALES!)
+  const locales = getLocales()
 
   const router = useRouter()
   const pathname = usePathname()
@@ -33,7 +34,7 @@ export default function LocaleSwitcher() {
       defaultValue={currentLocale}
       onChange={onLocaleSelected}
     >
-      {locales.map((locale: { code: string; name: string }) => (
+      {locales.map((locale) => (
         <option key={locale.code} value={locale.code}>
           {locale.name}
         </option>

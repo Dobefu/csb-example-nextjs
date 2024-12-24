@@ -6,8 +6,6 @@ describe('LocaleSwitcher', () => {
   afterEach(() => {
     cleanup()
     process.env.MOCK_PATHNAME = '/'
-    process.env.LOCALES =
-      '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
   })
 
   it('Renders normally', async () => {
