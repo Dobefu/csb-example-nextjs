@@ -1,9 +1,20 @@
 import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import Header from './Header'
+
+vi.mock('next/config', () => ({
+  default: () => {
+    return {
+      publicRuntimeConfig: {
+        appName: 'Testing',
+      },
+    }
+  },
+}))
 
 describe('Header', () => {
   afterEach(() => {
+    vi.restoreAllMocks()
     cleanup()
   })
 
