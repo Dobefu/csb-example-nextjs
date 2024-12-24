@@ -1,5 +1,7 @@
 import { vi } from 'vitest'
 
+process.env.LOCALES = 'en,nl'
+
 vi.mock('next/config', () => ({
   default: () => {
     return {
@@ -13,13 +15,15 @@ vi.mock('next/config', () => ({
 vi.mock('next/navigation', () => {
   const actual = vi.importActual('next/navigation')
   return {
-    ...actual,
+    ...(actual as object),
     useRouter: vi.fn(() => ({
       push: vi.fn(),
     })),
-    useSearchParams: vi.fn(() => ({
-      get: vi.fn(),
-    })),
-    usePathname: vi.fn(),
+    useSearchParams: () => {
+      return new URLSearchParams(process.env.MOCK_PATHNAME)
+    },
+    usePathname: () => {
+      return process.env.MOCK_PATHNAME
+    },
   }
 })
