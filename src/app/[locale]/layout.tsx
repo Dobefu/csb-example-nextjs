@@ -35,7 +35,7 @@ export default async function RootLayout({
         <div className="flex flex-1 flex-col justify-between gap-4">
           <Header />
 
-          <main id="main-content" className="flex-1">
+          <main id="main-content" className="flex-1 px-4">
             {children}
           </main>
 
