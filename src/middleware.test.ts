@@ -1,3 +1,4 @@
+import { cleanup } from '@testing-library/react'
 import { NextURL } from 'next/dist/server/web/next-url'
 import { NextRequest, NextResponse } from 'next/server'
 import { afterEach, describe, expect, it, vitest } from 'vitest'
@@ -7,7 +8,9 @@ describe('middleware', () => {
   const redirectSpy = vitest.spyOn(NextResponse, 'redirect')
 
   afterEach(() => {
+    cleanup()
     redirectSpy.mockReset()
+    process.env.LOCALES = 'en,nl'
   })
 
   it("doesn't redirect for valid locales", () => {
@@ -25,5 +28,12 @@ describe('middleware', () => {
         headers: {},
       }),
     )
+  })
+
+  it('Falls back on English when locales is empty', async () => {
+    delete process.env.LOCALES
+
+    middleware(new NextRequest(new URL('http://localhost:3000/en')))
+    expect(redirectSpy).not.toHaveBeenCalled()
   })
 })

@@ -34,8 +34,8 @@ describe('LocaleSwitcher', () => {
     expect(screen.getAllByRole('option').length).toBe(2)
   })
 
-  it('Falls back on English without any locales', async () => {
-    process.env.LOCALES = ''
+  it('Falls back on English when locales is empty', async () => {
+    delete process.env.LOCALES
 
     render(<LocaleSwitcher />)
 
