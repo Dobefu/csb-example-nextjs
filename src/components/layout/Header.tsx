@@ -1,3 +1,7 @@
+import getConfig from 'next/config'
+
 export default function Header() {
-  return <header>HEADER</header>
+  const { publicRuntimeConfig } = getConfig()
+
+  return <header>{publicRuntimeConfig.appName}</header>
 }
