@@ -11,7 +11,7 @@ const LocaleLink: React.FC<LinkProps & React.HTMLProps<HTMLAnchorElement>> = (
 
   const newProps = {
     ...props,
-    href: `${locale}${props.href}`,
+    href: `/${locale}${props.href}`,
   }
 
   console.log(newProps)
