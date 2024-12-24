@@ -2,7 +2,7 @@
 
 import React, { createContext } from 'react'
 
-const LocaleContext = createContext({})
+export const LocaleContext = createContext({})
 
 export default function Providers({
   children,
