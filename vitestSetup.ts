@@ -1,5 +1,6 @@
 import { vi } from 'vitest'
 
+process.env.APP_HOST = 'http://localhost:3000'
 process.env.LOCALES =
   '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
 
