@@ -1,9 +1,8 @@
 import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, it } from 'node:test'
-import { expect, test } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import Home from './page'
 
-test('Home', () => {
+describe('Home', () => {
   afterEach(() => {
     cleanup()
   })
