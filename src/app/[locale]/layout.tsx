@@ -30,11 +30,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} font-sans antialiased`}>
-        <Header />
+        <div className="flex flex-col gap-4 p-4">
+          <Header />
 
-        {children}
+          {children}
 
-        <Footer />
+          <Footer />
+        </div>
       </body>
     </html>
   )
