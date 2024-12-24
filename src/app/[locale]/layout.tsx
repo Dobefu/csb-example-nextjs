@@ -1,3 +1,4 @@
+import Header from '@/components/layout/Header'
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import './globals.css'
@@ -25,6 +26,8 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} font-sans antialiased`}>
+        <Header />
+
         {children}
       </body>
     </html>
