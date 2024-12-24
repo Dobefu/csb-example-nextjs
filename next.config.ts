@@ -12,6 +12,9 @@ module.exports = async () => {
       DEFAULT_LOCALE: defaultLocale ?? 'en',
       LOCALES: locales.join(',') ?? ['en'],
     },
+    publicRuntimeConfig: {
+      appName: process.env.APP_NAME ?? '',
+    },
     async headers() {
       return [
         {
