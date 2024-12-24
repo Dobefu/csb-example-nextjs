@@ -5,6 +5,8 @@ import LocaleSwitcher from './LocaleSwitcher'
 describe('LocaleSwitcher', () => {
   afterEach(() => {
     cleanup()
+    process.env.MOCK_PATHNAME = '/'
+    process.env.LOCALES = 'en,nl'
   })
 
   it('Renders normally', async () => {
@@ -28,5 +30,14 @@ describe('LocaleSwitcher', () => {
     render(<LocaleSwitcher />)
 
     fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
+  })
+
+  it('Falls back on English without any locales', async () => {
+    process.env.LOCALES = ''
+
+    render(<LocaleSwitcher />)
+
+    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('en')
+    expect(screen.getAllByRole('option').length).toBe(1)
   })
 })

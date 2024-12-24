@@ -6,7 +6,7 @@ import { ChangeEvent, useCallback, useContext } from 'react'
 
 export default function LocaleSwitcher() {
   const currentLocale = useContext(LocaleContext)
-  const locales = (process.env.LOCALES ?? 'en').split(',')
+  const locales = (process.env.LOCALES || 'en').split(',')
 
   const router = useRouter()
   const pathname = usePathname()
