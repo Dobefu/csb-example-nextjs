@@ -21,5 +21,11 @@ export interface Entry {
   updated_at: string
   updated_by: string
   url: string
+  seo?: {
+    description?: string
+    og_description?: string
+    og_title?: string
+    title?: string
+  }
   [key: string]: unknown
 }
