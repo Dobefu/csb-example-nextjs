@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: data.entry.seo?.title || data.entry.title,
+    description: data.entry.seo?.description,
   }
 }
 
