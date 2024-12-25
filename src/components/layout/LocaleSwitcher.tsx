@@ -1,11 +1,23 @@
 'use client'
 
 import { LocaleContext } from '@/app/[locale]/providers'
+import { AltLocale } from '@/types/alt-locale'
 import getLocales from '@/utils/get-locales'
+import { logError } from '@/utils/logger'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, useCallback, useContext } from 'react'
+import { ChangeEvent, useCallback, useContext, useMemo } from 'react'
 
-export default function LocaleSwitcher() {
+type Props = {
+  altLocales: AltLocale[]
+}
+
+type Locale = {
+  code: string
+  name: string
+  url: string
+}
+
+export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
   const currentLocale = useContext(LocaleContext)
   const locales = getLocales()
 
@@ -13,10 +25,50 @@ export default function LocaleSwitcher() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
+  const usableLocales = useMemo<Locale[]>(() => {
+    const newLocales: Locale[] = []
+
+    for (const locale of locales) {
+      let altLocale: { url: string } | undefined = altLocales.find(
+        (altLocale) => altLocale.locale === locale.code,
+      )
+
+      if (!altLocale && locale.code === currentLocale) {
+        const pathParts = pathname.split('/')
+        const pathWithoutLocale = pathParts.slice(2).join('/')
+
+        if (pathParts.length >= 2) {
+          altLocale = { url: `/${pathWithoutLocale}` }
+        }
+      }
+
+      if (!altLocale) {
+        continue
+      }
+
+      newLocales.push({
+        code: locale.code,
+        name: locale.name,
+        url: altLocale.url,
+      })
+    }
+
+    return newLocales
+  }, [currentLocale, altLocales, locales, pathname])
+
   const onLocaleSelected = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const newLocale = e.target.value
-      let path = pathname.replace(`/${currentLocale}`, '')
+      const newLocaleObject = usableLocales.find(
+        (usableLocale) => usableLocale.code === newLocale,
+      )
+
+      if (!newLocaleObject) {
+        logError('Failed to switch the locale')
+        return
+      }
+
+      let path = newLocaleObject.url
 
       if (searchParams.size) {
         path = `${path}?${searchParams}`
@@ -24,7 +76,7 @@ export default function LocaleSwitcher() {
 
       router.push(`/${newLocale}/${path}`)
     },
-    [router, currentLocale, pathname, searchParams],
+    [usableLocales, router, searchParams],
   )
 
   return (
@@ -34,7 +86,7 @@ export default function LocaleSwitcher() {
       defaultValue={currentLocale}
       onChange={onLocaleSelected}
     >
-      {locales.map((locale) => (
+      {usableLocales.map((locale) => (
         <option key={locale.code} value={locale.code}>
           {locale.name}
         </option>

@@ -1,8 +1,13 @@
+import { AltLocale } from '@/types/alt-locale'
 import getConfig from 'next/config'
 import LocaleLink from '../utils/LocaleLink'
 import LocaleSwitcher from './LocaleSwitcher'
 
-export default function Header() {
+type Props = {
+  altLocales: AltLocale[]
+}
+
+export default function Header({ altLocales }: Readonly<Props>) {
   const { publicRuntimeConfig } = getConfig()
 
   return (
@@ -12,7 +17,7 @@ export default function Header() {
       </nav>
 
       <nav>
-        <LocaleSwitcher />
+        <LocaleSwitcher altLocales={altLocales} />
       </nav>
     </header>
   )
