@@ -13,8 +13,8 @@ vi.mock('next/config', () => ({
   },
 }))
 
-vi.mock('next/navigation', () => {
-  const actual = vi.importActual('next/navigation')
+vi.mock('next/navigation', async () => {
+  const actual = await vi.importActual('next/navigation')
   return {
     ...(actual as object),
     useRouter: vi.fn(() => ({

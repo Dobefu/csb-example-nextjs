@@ -1,21 +1,22 @@
 import { AltLocale } from '@/types/alt-locale'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { loadEnvFile } from 'node:process'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import LocaleSwitcher from './LocaleSwitcher'
+
+vi.mock('react', async () => {
+  const actual = await vi.importActual('react')
+  return {
+    ...(actual as object),
+    useContext: () => 'nl',
+  }
+})
 
 const mockAltLocales: AltLocale[] = [
   {
     uid: '',
     content_type: '',
     locale: 'en',
-    slug: '/',
-    url: '/',
-  },
-  {
-    uid: '',
-    content_type: '',
-    locale: 'nl',
     slug: '/',
     url: '/',
   },
@@ -28,10 +29,31 @@ describe('LocaleSwitcher', () => {
   })
 
   it('Renders normally', async () => {
+    process.env.MOCK_PATHNAME = '/'
+
     render(<LocaleSwitcher altLocales={mockAltLocales} />)
 
-    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('en')
+    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('nl')
     expect(screen.getAllByRole('option').length).toBe(2)
+  })
+
+  it('Renders with the current locale as the only option', async () => {
+    process.env.MOCK_PATHNAME = '/'
+
+    const altLocales = [
+      {
+        uid: '',
+        content_type: '',
+        locale: 'nl',
+        slug: '/',
+        url: '/',
+      },
+    ]
+
+    render(<LocaleSwitcher altLocales={altLocales} />)
+
+    expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('nl')
+    expect(screen.getAllByRole('option').length).toBe(1)
   })
 
   it('Redirects the root path', async () => {

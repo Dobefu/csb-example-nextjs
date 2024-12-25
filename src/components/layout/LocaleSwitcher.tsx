@@ -63,10 +63,13 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
         (usableLocale) => usableLocale.code === newLocale,
       )
 
+      /* v8 ignore start */
       if (!newLocaleObject) {
+        // This should never actually happen.
         logError('Failed to switch the locale')
         return
       }
+      /* v8 ignore stop */
 
       let path = newLocaleObject.url
 
