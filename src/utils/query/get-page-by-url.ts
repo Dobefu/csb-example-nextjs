@@ -20,5 +20,5 @@ export async function getPageByUrl<T>(pageUrl: string, locale: string) {
     },
   }
 
-  return await queryClient.fetchQuery<T>(query)
+  return await queryClient.fetchQuery<{ data?: T; error?: string }>(query)
 }
