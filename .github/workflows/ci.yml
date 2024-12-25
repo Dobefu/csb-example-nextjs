@@ -54,14 +54,26 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Create a .env.test file
+        run: |
+          touch .env.test
+          echo "APP_NAME=\"Testing\"" >> .env.test
+          echo "APP_HOST=\"${{ vars.APP_HOST }}\"" >> .env.test
+          echo "CS_DELIVERY_TOKEN=\"${{ vars.CS_DELIVERY_TOKEN }}\"" >> .env.test
+          echo "CS_API_ENDPOINT=\"${{ vars.CS_API_ENDPOINT }}\"" >> .env.test
+          echo "DISABLE_QUERY_CACHE=0" >> .env.test
+
       - name: Enable PNPM
         run: corepack enable
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Test
+      - name: Run tests
         run: pnpm coverage
+
+      - name: Delete the .env.test file after tests are completed
+        run: rm .env.test
 
       - uses: actions/upload-artifact@v4
         with:
