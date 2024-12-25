@@ -32,6 +32,6 @@ export interface RoutableEntryResponse {
       url: string
       [key: string]: unknown
     }
-  }
-  error?: string
+  } | null
+  error: string | null
 }
