@@ -1,4 +1,3 @@
-import formatPageTitle from '@/utils/format-page-title'
 import { logError } from '@/utils/logger'
 import { getPageByUrl } from '@/utils/query/get-page-by-url'
 import { Metadata } from 'next'
