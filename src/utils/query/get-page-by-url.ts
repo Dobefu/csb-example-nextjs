@@ -8,15 +8,8 @@ export async function getPageByUrl<T>(pageUrl: string, locale: string) {
   const query = {
     queryKey: ['getPageByUrl', url],
     queryFn: async () => {
-      try {
-        const response = await fetch(url)
-        return await response.json()
-      } catch (error) {
-        return {
-          data: null,
-          error,
-        }
-      }
+      const response = await fetch(url)
+      return await response.json()
     },
   }
 
