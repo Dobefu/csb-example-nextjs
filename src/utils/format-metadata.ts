@@ -21,7 +21,7 @@ export default function formatMetadata(
     },
     openGraph: {
       title: entry.seo?.og_title ?? entry.title,
-      description: entry.seo?.description,
+      description: entry.seo?.og_description ?? entry.seo?.description,
     },
   }
 }
