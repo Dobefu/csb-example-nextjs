@@ -7,7 +7,11 @@ export default async function Home({
 }: Readonly<{
   params: Promise<{ locale: string; slug?: string[] }>
 }>) {
-  const { data, error } = await getPageByUrl('/', 'en')
+  const slugParts = (await params).slug ?? ['']
+  const url = `/${slugParts.join('/')}`
+  const locale = (await params).locale ?? 'en'
+
+  const { data, error } = await getPageByUrl(url, locale)
 
   if (error) {
     logError(`Cannot get the page: ${error}`)
