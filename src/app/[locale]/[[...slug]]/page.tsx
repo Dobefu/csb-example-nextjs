@@ -6,7 +6,9 @@ import { notFound } from 'next/navigation'
 
 type Props = { params: Promise<{ locale: string; slug?: string[] }> }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Readonly<Props>): Promise<Metadata> {
   const slugParts = (await params).slug ?? ['']
   const url = `/${slugParts.join('/')}`
   const locale = (await params).locale
