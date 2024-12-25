@@ -18,8 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: data.entry.seo?.title || data.entry.title,
+    title: data.entry.seo?.title ?? data.entry.title,
     description: data.entry.seo?.description,
+    openGraph: {
+      title: data.entry.seo?.og_title ?? data.entry.title,
+      description: data.entry.seo?.description,
+    },
   }
 }
 
