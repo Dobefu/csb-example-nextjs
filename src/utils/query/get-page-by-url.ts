@@ -1,10 +1,17 @@
+import { RoutableEntryResponse } from '@/types/routable-entry-response'
 import { createQueryClient } from './create-query-client'
 
-export async function getPageByUrl<T>(pageUrl: string, locale: string) {
+export async function getPageByUrl(
+  pageUrl: string,
+  locale: string,
+): Promise<RoutableEntryResponse> {
   const endpoint = process.env.CS_API_ENDPOINT ?? ''
 
   if (!endpoint) {
-    return { data: null, error: 'CS_API_ENDPOINT is not valid' }
+    return {
+      data: null,
+      error: 'CS_API_ENDPOINT is not valid',
+    } satisfies RoutableEntryResponse
   }
 
   const url = `${endpoint}/get-entry-by-url?url=${pageUrl}&locale=${locale}`
@@ -18,5 +25,5 @@ export async function getPageByUrl<T>(pageUrl: string, locale: string) {
     },
   }
 
-  return await queryClient.fetchQuery<{ data?: T; error?: string }>(query)
+  return await queryClient.fetchQuery<RoutableEntryResponse>(query)
 }
