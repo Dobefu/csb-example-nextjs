@@ -1,7 +1,8 @@
 import { createQueryClient } from './create-query-client'
 
 export async function getPageByUrl<T>(pageUrl: string, locale: string) {
-  const url = `${process.env.CS_API_ENDPOINT ?? ''}/get-entry-by-url?url=${pageUrl}&locale=${locale}`
+  const endpoint = process.env.CS_API_ENDPOINT ?? ''
+  const url = `${endpoint}/get-entry-by-url?url=${pageUrl}&locale=${locale}`
 
   const queryClient = createQueryClient()
   const query = {
