@@ -1,12 +1,29 @@
+import formatPageTitle from '@/utils/format-page-title'
 import { logError } from '@/utils/logger'
 import { getPageByUrl } from '@/utils/query/get-page-by-url'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-export default async function Home({
-  params,
-}: Readonly<{
-  params: Promise<{ locale: string; slug?: string[] }>
-}>) {
+type Props = { params: Promise<{ locale: string; slug?: string[] }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slugParts = (await params).slug ?? ['']
+  const url = `/${slugParts.join('/')}`
+  const locale = (await params).locale
+
+  const { data, error } = await getPageByUrl(url, locale)
+
+  if (error || !data) {
+    logError(`Cannot get the page: ${error}`)
+    return notFound()
+  }
+
+  return {
+    title: formatPageTitle(data.entry),
+  }
+}
+
+export default async function Home({ params }: Readonly<Props>) {
   const slugParts = (await params).slug ?? ['']
   const url = `/${slugParts.join('/')}`
   const locale = (await params).locale
