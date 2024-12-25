@@ -1,3 +1,4 @@
+import formatMetadata from '@/utils/format-metadata'
 import { logError } from '@/utils/logger'
 import { getPageByUrl } from '@/utils/query/get-page-by-url'
 import { Metadata } from 'next'
@@ -17,24 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return notFound()
   }
 
-  const altLocales: Record<string, string> = {}
-
-  for (const altLocale of data.alt_locales) {
-    altLocales[altLocale.locale] = `/${altLocale.locale}${altLocale.url}`
-  }
-
-  return {
-    title: data.entry.seo?.title ?? data.entry.title,
-    description: data.entry.seo?.description,
-    alternates: {
-      canonical: '/',
-      languages: altLocales,
-    },
-    openGraph: {
-      title: data.entry.seo?.og_title ?? data.entry.title,
-      description: data.entry.seo?.description,
-    },
-  }
+  return formatMetadata(data.entry, data.alt_locales)
 }
 
 export default async function Home({ params }: Readonly<Props>) {
