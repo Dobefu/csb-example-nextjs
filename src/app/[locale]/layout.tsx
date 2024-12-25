@@ -1,5 +1,3 @@
-import Footer from '@/components/layout/Footer'
-import Header from '@/components/layout/Header'
 import type { Metadata } from 'next'
 import getConfig from 'next/config'
 import { TemplateString } from 'next/dist/lib/metadata/types/metadata-types'
@@ -37,17 +35,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} flex min-h-full flex-col font-sans antialiased`}
       >
-        <Providers locale={locale}>
-          <div className="flex flex-1 flex-col justify-between gap-4">
-            <Header />
-
-            <main className="flex-1 px-8" id="main-content">
-              {children}
-            </main>
-
-            <Footer />
-          </div>
-        </Providers>
+        <Providers locale={locale}>{children}</Providers>
       </body>
     </html>
   )
