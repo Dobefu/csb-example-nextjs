@@ -1,4 +1,4 @@
-import { Entry } from './entry'
+import type { Entry } from './entry'
 
 export interface RoutableEntryResponse {
   data: {
