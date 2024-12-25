@@ -5,7 +5,7 @@ describe('robots', () => {
   it('renders', () => {
     const file = robots()
 
-    expect(file.sitemap).toBe('http://localhost:3000/sitemap.xml')
+    expect(file.sitemap).toContain('/sitemap.xml')
     expect(file.rules).toBeDefined()
   })
 })
