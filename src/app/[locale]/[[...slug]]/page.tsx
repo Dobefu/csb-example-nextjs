@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: formatPageTitle(data.entry),
+    title: data.entry.seo?.title || data.entry.title,
   }
 }
 

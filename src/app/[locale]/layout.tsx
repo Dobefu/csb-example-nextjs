@@ -14,11 +14,12 @@ const geistSans = Geist({
 })
 
 const { publicRuntimeConfig } = getConfig()
+const appName = publicRuntimeConfig.appName || ''
 
 export const metadata: Metadata = {
   title: {
-    default: publicRuntimeConfig.appName || '',
-    template: publicRuntimeConfig.appName || '',
+    default: appName,
+    template: `%s | ${appName}`,
   } satisfies TemplateString,
 }
 
