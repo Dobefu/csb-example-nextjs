@@ -30,14 +30,14 @@ export default async function Home({ params }: Readonly<Props>) {
 
   const { data, error } = await getPageByUrl(url, locale)
 
-  if (error) {
+  if (!data || error) {
     logError(`Cannot get the page: ${error}`)
     return notFound()
   }
 
   return (
     <code className="whitespace-pre">
-      {JSON.stringify(data?.entry, null, 2)}
+      {JSON.stringify(data.entry, null, 2)}
     </code>
   )
 }
