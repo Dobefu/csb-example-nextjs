@@ -1,11 +1,10 @@
+import { loadEnvFile } from 'node:process'
 import { afterEach, describe, expect, it } from 'vitest'
 import getLocales from './get-locales'
 
 describe('get-locales', () => {
   afterEach(() => {
-    process.env.MOCK_PATHNAME = '/'
-    process.env.LOCALES =
-      '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
+    loadEnvFile('.env.test')
   })
 
   it('Returns the locales', () => {

@@ -1,11 +1,12 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { loadEnvFile } from 'node:process'
 import { afterEach, describe, expect, it } from 'vitest'
 import LocaleSwitcher from './LocaleSwitcher'
 
 describe('LocaleSwitcher', () => {
   afterEach(() => {
     cleanup()
-    process.env.MOCK_PATHNAME = '/'
+    loadEnvFile('.env.test')
   })
 
   it('Renders normally', async () => {

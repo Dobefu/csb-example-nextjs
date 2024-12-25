@@ -1,12 +1,11 @@
+import { loadEnvFile } from 'node:process'
 import { afterEach } from 'node:test'
 import { describe, expect, it } from 'vitest'
 import { getPageByUrl } from './get-page-by-url'
 
-const endpoint = process.env.CS_API_ENDPOINT
-
 describe('getPageByUrl', () => {
   afterEach(() => {
-    process.env.CS_API_ENDPOINT = endpoint
+    loadEnvFile('.env.test')
   })
 
   it('can fetch the homepage', async () => {
