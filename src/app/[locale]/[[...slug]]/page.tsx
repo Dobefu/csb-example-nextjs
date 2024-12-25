@@ -9,7 +9,7 @@ export default async function Home({
 }>) {
   const slugParts = (await params).slug ?? ['']
   const url = `/${slugParts.join('/')}`
-  const locale = (await params).locale ?? 'en'
+  const locale = (await params).locale
 
   const { data, error } = await getPageByUrl(url, locale)
 
