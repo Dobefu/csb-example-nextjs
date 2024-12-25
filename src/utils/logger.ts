@@ -1,3 +1,3 @@
 export function logError(message: string) {
-  console.error(`${message}`)
+  console.error(`‼ ${message}`)
 }
