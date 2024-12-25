@@ -3,6 +3,7 @@ import { vi } from 'vitest'
 process.env.APP_HOST = 'http://localhost:3000'
 process.env.LOCALES =
   '[{"code":"en","name":"English"},{"code":"nl","name":"Dutch"}]'
+process.env.CS_API_ENDPOINT = 'http://localhost:4000/api/v1'
 
 vi.mock('next/config', () => ({
   default: () => {
