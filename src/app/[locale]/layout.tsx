@@ -2,6 +2,7 @@ import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import type { Metadata } from 'next'
 import getConfig from 'next/config'
+import { TemplateString } from 'next/dist/lib/metadata/types/metadata-types'
 import { Geist } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
@@ -15,7 +16,10 @@ const geistSans = Geist({
 const { publicRuntimeConfig } = getConfig()
 
 export const metadata: Metadata = {
-  title: publicRuntimeConfig.appName,
+  title: {
+    default: publicRuntimeConfig.appName || '',
+    template: publicRuntimeConfig.appName || '',
+  } satisfies TemplateString,
 }
 
 export default async function RootLayout({
