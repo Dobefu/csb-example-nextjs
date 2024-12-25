@@ -1,4 +1,5 @@
 import { FlatCompat } from '@eslint/eslintrc'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 import pluginReact from 'eslint-plugin-react'
 
 const compat = new FlatCompat({
@@ -9,6 +10,7 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
   }),
+  ...pluginQuery.configs['flat/recommended'],
   {
     ...pluginReact.configs.flat.recommended,
     rules: {
