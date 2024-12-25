@@ -5,8 +5,7 @@ export const createQueryClient = () => {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime:
-          process.env.NODE_ENV === 'production' ? 1 : secondsInFiveMinutes,
+        staleTime: process.env.DISABLE_QUERY_CACHE ? 1 : secondsInFiveMinutes,
       },
     },
   })
