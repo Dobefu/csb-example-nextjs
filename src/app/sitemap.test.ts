@@ -34,4 +34,12 @@ describe('sitemap', () => {
 
     expect(sitemapOutput).toMatchObject([])
   })
+
+  it('returns early when the API endpoint is missing', async () => {
+    delete process.env.CS_API_ENDPOINT
+
+    const sitemapOutput = await sitemap()
+
+    expect(sitemapOutput).toMatchObject([])
+  })
 })
