@@ -9,7 +9,7 @@ type Props = {
 export default function Breadcrumbs({ breadcrumbs }: Readonly<Props>) {
   return (
     <div className="px-8">
-      <ol className="flex gap-2">
+      <ol className="flex flex-wrap gap-2">
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             className={cn(
