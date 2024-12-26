@@ -26,4 +26,13 @@ describe('getPageByUrl', () => {
     expect(data).toBeNull()
     expect(error).toBeDefined()
   })
+
+  it('cannot fetch the homepage without a valid delivery token', async () => {
+    delete process.env.CS_DELIVERY_TOKEN
+
+    const { data, error } = await getPageByUrl('/', 'en')
+
+    expect(data).toBeNull()
+    expect(error).toBeDefined()
+  })
 })
