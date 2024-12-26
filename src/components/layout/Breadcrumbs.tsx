@@ -7,6 +7,10 @@ type Props = {
 }
 
 export default function Breadcrumbs({ breadcrumbs }: Readonly<Props>) {
+  if (breadcrumbs.length <= 0) {
+    return
+  }
+
   return (
     <div className="px-8 pb-8">
       <ol className="flex flex-wrap gap-2">

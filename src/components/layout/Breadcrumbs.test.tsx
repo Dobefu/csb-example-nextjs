@@ -46,11 +46,13 @@ describe('Breadcrumbs', () => {
     expect(screen.getAllByRole('listitem').length).toBe(2)
   })
 
-  it('Renders without any breadcrumbs', () => {
+  it('Does not render without any breadcrumbs', async () => {
     mockBreadcrumbs = []
 
     render(<Breadcrumbs breadcrumbs={mockBreadcrumbs} />)
 
-    expect(screen.getByRole('list')).toBeDefined()
+    await expect(
+      async () => await screen.findByRole('list'),
+    ).rejects.toThrowError()
   })
 })
