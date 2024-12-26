@@ -110,4 +110,25 @@ describe('format-metadata', () => {
       title: 'Test Title',
     })
   })
+
+  it('formats the metadata correctly with a missing APP_HOST variable', () => {
+    delete process.env.APP_HOST
+
+    const metadata = formatMetadata(mockEntry, mockAltLocales)
+
+    expect(metadata).toMatchObject({
+      alternates: {
+        canonical: '/',
+        languages: {
+          nl: '/nl/',
+        },
+      },
+      description: undefined,
+      openGraph: {
+        description: undefined,
+        title: 'Test Title',
+      },
+      title: 'Test Title',
+    })
+  })
 })
