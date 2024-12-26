@@ -35,9 +35,5 @@ export default async function Home({ params }: Readonly<Props>) {
     return notFound()
   }
 
-  return (
-    <code className="whitespace-pre">
-      {JSON.stringify(data.entry, null, 2)}
-    </code>
-  )
+  return <h1 className="text-xl font-medium">{data.entry.title}</h1>
 }
