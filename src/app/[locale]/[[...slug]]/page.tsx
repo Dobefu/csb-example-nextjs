@@ -35,5 +35,9 @@ export default async function Home({ params }: Readonly<Props>) {
     return notFound()
   }
 
-  return <h1 className="text-xl font-medium">{data.entry.title}</h1>
+  return (
+    <h1 className="text-xl font-medium">
+      {data.entry.seo?.title ?? data.entry.title}
+    </h1>
+  )
 }
