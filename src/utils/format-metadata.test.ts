@@ -47,9 +47,9 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: '/',
+        canonical: `${process.env.APP_HOST}/`,
         languages: {
-          nl: '/nl/',
+          nl: `${process.env.APP_HOST}/nl/`,
         },
       },
       description: undefined,
@@ -73,9 +73,9 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: '/',
+        canonical: `${process.env.APP_HOST}/`,
         languages: {
-          nl: '/nl/',
+          nl: `${process.env.APP_HOST}/nl/`,
         },
       },
       description: 'Test Description',
@@ -97,9 +97,9 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: '/',
+        canonical: `${process.env.APP_HOST}/`,
         languages: {
-          nl: '/nl/',
+          nl: `${process.env.APP_HOST}/nl/`,
         },
       },
       description: 'Test Description',

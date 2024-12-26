@@ -18,7 +18,7 @@ export default function formatMetadata(
     title: entry.seo?.title ?? entry.title,
     description: entry.seo?.description,
     alternates: {
-      canonical: `${host ?? ''}/${entry.url}`,
+      canonical: `${host ?? ''}${entry.url}`,
       languages: altLocalesMeta,
     },
     openGraph: {
