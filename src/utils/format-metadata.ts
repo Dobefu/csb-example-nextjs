@@ -7,6 +7,7 @@ export default function formatMetadata(
   altLocales: AltLocale[],
 ): Metadata {
   const altLocalesMeta: Record<string, string> = {}
+  const host = process.env.APP_HOST
 
   for (const altLocale of altLocales) {
     altLocalesMeta[altLocale.locale] = `/${altLocale.locale}${altLocale.url}`
@@ -16,7 +17,7 @@ export default function formatMetadata(
     title: entry.seo?.title ?? entry.title,
     description: entry.seo?.description,
     alternates: {
-      canonical: '/',
+      canonical: `${host ?? ''}/${entry.url}`,
       languages: altLocalesMeta,
     },
     openGraph: {
