@@ -10,7 +10,8 @@ export default function formatMetadata(
   const host = process.env.APP_HOST
 
   for (const altLocale of altLocales) {
-    altLocalesMeta[altLocale.locale] = `/${altLocale.locale}${altLocale.url}`
+    altLocalesMeta[altLocale.locale] =
+      `${host ?? ''}/${altLocale.locale}${altLocale.url}`
   }
 
   return {
