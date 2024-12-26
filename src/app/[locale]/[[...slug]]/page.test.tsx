@@ -24,6 +24,27 @@ describe('Home', () => {
     expect(screen).toBeDefined()
   })
 
+  it('Renders normally on a nested route', async () => {
+    render(
+      await Home(
+        await new Promise<(typeof Home)['arguments']>((resolve) => {
+          resolve({
+            params: {
+              locale: 'en',
+              slug: [
+                'nesting-level-0',
+                'nesting-level-1-1',
+                'nesting-level-2-1',
+              ],
+            },
+          })
+        }),
+      ),
+    )
+
+    expect(screen).toBeDefined()
+  })
+
   it('Renders normally on a 404', async () => {
     render(
       await Home(
