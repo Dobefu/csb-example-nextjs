@@ -1,7 +1,7 @@
 import { AltLocale } from '@/types/alt-locale'
 import getConfig from 'next/config'
 import LocaleLink from '../utils/LocaleLink'
-import LocaleSwitcher from './LocaleSwitcher'
+import LocaleSwitcher from './LocaleSwitcher.client'
 
 type Props = {
   altLocales: AltLocale[]
