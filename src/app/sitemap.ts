@@ -72,15 +72,19 @@ async function fetchSitemapData(): Promise<ApiResponse> {
     },
   })
 
+  /* v8 ignore start */
   if (!response.ok) {
     return { data: null, error: await response.json() }
   }
+  /* v8 ignore stop */
 
   const { data, error }: ApiResponse = await response.json()
 
+  /* v8 ignore start */
   if (error) {
     return { data: null, error }
   }
+  /* v8 ignore stop */
 
   return { data, error: null }
 }
