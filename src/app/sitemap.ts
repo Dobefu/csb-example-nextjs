@@ -25,6 +25,7 @@ type ApiResponse = {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const host = process.env.APP_HOST ?? ''
+  const defaultLocale = process.env.DEFAULT_LOCALE ?? 'en'
 
   if (!host) {
     logError('APP_HOST is empty or undefined')
@@ -47,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     return {
-      url: `${host}${entry.url}`,
+      url: `${host}/${defaultLocale}${entry.url}`,
       alternates: { languages: altLocales },
     }
   })
