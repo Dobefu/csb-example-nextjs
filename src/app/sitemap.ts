@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   if (!host) {
     logError('APP_HOST is empty or undefined')
+    return []
   }
 
   const { data, error } = await fetchSitemapData()
