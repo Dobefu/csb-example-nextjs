@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import { logError } from '@/utils/logger'
@@ -25,6 +26,8 @@ export default async function Layout({ children, params }: Readonly<Props>) {
   return (
     <div className="flex flex-1 flex-col justify-between gap-4">
       <Header altLocales={data.alt_locales} />
+
+      <Breadcrumbs breadcrumbs={data.breadcrumbs} />
 
       <main className="flex-1 px-8" id="main-content">
         {children}
