@@ -26,7 +26,7 @@ export async function fetchLocales(): Promise<{
 
   const response = await fetch(`${endpoint}/locales`, {
     headers: {
-      authorization: deliveryToken,
+      Authorization: deliveryToken,
     },
   })
 
