@@ -6,6 +6,7 @@ export async function getPageByUrl(
   locale: string,
 ): Promise<RoutableEntryResponse> {
   const endpoint = process.env.CS_API_ENDPOINT ?? ''
+  const deliveryToken = process.env.CS_DELIVERY_TOKEN ?? ''
 
   if (!endpoint) {
     return {
@@ -18,9 +19,14 @@ export async function getPageByUrl(
 
   const queryClient = createQueryClient()
   const query = {
-    queryKey: ['getPageByUrl', url],
+    queryKey: ['getPageByUrl', url, deliveryToken],
     queryFn: async () => {
-      const response = await fetch(url)
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: deliveryToken,
+        },
+      })
       return await response.json()
     },
   }
