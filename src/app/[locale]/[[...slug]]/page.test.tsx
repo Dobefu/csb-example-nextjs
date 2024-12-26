@@ -9,11 +9,33 @@ describe('Home', () => {
 
   it('Renders normally', async () => {
     render(
-      await Home({
-        params: { locale: 'en', slug: ['test'] } as unknown as Promise<
-          (typeof Home)['arguments']
-        >,
-      }),
+      await Home(
+        await new Promise<(typeof Home)['arguments']>((resolve) => {
+          resolve({
+            params: {
+              locale: 'en',
+              slug: [''],
+            },
+          })
+        }),
+      ),
+    )
+
+    expect(screen).toBeDefined()
+  })
+
+  it('Renders normally on a 404', async () => {
+    render(
+      await Home(
+        await new Promise<(typeof Home)['arguments']>((resolve) => {
+          resolve({
+            params: {
+              locale: 'en',
+              slug: ['bogus'],
+            },
+          })
+        }),
+      ),
     )
 
     expect(screen).toBeDefined()
