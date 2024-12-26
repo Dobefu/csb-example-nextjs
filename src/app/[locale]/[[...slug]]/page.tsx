@@ -8,7 +8,7 @@ type Props = { params: Promise<{ locale: string; slug?: string[] }> }
 
 export async function generateMetadata({
   params,
-}: Readonly<Props>): Promise<Metadata> {
+}: Readonly<Props>): Promise<Metadata | undefined> {
   const slugParts = (await params).slug ?? ['']
   const url = `/${slugParts.join('/')}`
   const locale = (await params).locale
@@ -17,7 +17,7 @@ export async function generateMetadata({
 
   if (error || !data) {
     logError(`Cannot get the page: ${error}`)
-    return notFound()
+    return
   }
 
   return formatMetadata(data.entry, data.alt_locales)

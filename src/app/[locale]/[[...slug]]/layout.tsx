@@ -3,7 +3,6 @@ import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import { logError } from '@/utils/logger'
 import { getPageByUrl } from '@/utils/query/get-page-by-url'
-import { notFound } from 'next/navigation'
 import React from 'react'
 
 type Props = {
@@ -20,14 +19,13 @@ export default async function Layout({ children, params }: Readonly<Props>) {
 
   if (!data || error) {
     logError(`Cannot get the page: ${error}`)
-    return notFound()
   }
 
   return (
     <div className="flex flex-1 flex-col justify-between gap-4">
-      <Header altLocales={data.alt_locales} />
+      <Header altLocales={data?.alt_locales ?? []} />
 
-      <Breadcrumbs breadcrumbs={data.breadcrumbs} />
+      <Breadcrumbs breadcrumbs={data?.breadcrumbs ?? []} />
 
       <main className="flex-1 px-8" id="main-content">
         {children}
