@@ -26,4 +26,12 @@ describe('sitemap', () => {
 
     expect(sitemapOutput).toMatchObject([])
   })
+
+  it('returns early when data fetching fails', async () => {
+    delete process.env.CS_DELIVERY_TOKEN
+
+    const sitemapOutput = await sitemap()
+
+    expect(sitemapOutput).toMatchObject([])
+  })
 })
