@@ -47,7 +47,7 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: `${process.env.APP_HOST}/`,
+        canonical: undefined,
         languages: {
           nl: `${process.env.APP_HOST}/nl/`,
         },
@@ -62,6 +62,7 @@ describe('format-metadata', () => {
   })
 
   it('formats the metadata correctly with SEO data', () => {
+    mockEntry['url'] = '/test-page-1'
     mockEntry['seo'] = {
       description: 'Test Description',
       og_description: 'Test OG Description',
@@ -73,7 +74,7 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: `${process.env.APP_HOST}/`,
+        canonical: `${process.env.APP_HOST}/test-page-1`,
         languages: {
           nl: `${process.env.APP_HOST}/nl/`,
         },
@@ -88,6 +89,7 @@ describe('format-metadata', () => {
   })
 
   it('formats the metadata correctly with partial SEO data', () => {
+    mockEntry['url'] = '/test-page-1'
     mockEntry['seo'] = {
       description: 'Test Description',
       og_title: 'Test OG Title',
@@ -97,7 +99,7 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: `${process.env.APP_HOST}/`,
+        canonical: `${process.env.APP_HOST}/test-page-1`,
         languages: {
           nl: `${process.env.APP_HOST}/nl/`,
         },
@@ -118,7 +120,7 @@ describe('format-metadata', () => {
 
     expect(metadata).toMatchObject({
       alternates: {
-        canonical: '/',
+        canonical: undefined,
         languages: {
           nl: '/nl/',
         },
