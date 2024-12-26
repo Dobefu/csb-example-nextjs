@@ -2,7 +2,7 @@ import { AltLocale } from '@/types/alt-locale'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { loadEnvFile } from 'node:process'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import LocaleSwitcher from './LocaleSwitcher'
+import LocaleSwitcher from './LocaleSwitcher.client'
 
 vi.mock('react', async () => {
   const actual = await vi.importActual('react')
