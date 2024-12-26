@@ -1,8 +1,12 @@
 import { loadEnvFile } from 'node:process'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import getLocales from './get-locales'
 
 describe('get-locales', () => {
+  beforeEach(() => {
+    loadEnvFile('.env.test')
+  })
+
   afterEach(() => {
     loadEnvFile('.env.test')
   })

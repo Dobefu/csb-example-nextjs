@@ -2,11 +2,15 @@ import { cleanup } from '@testing-library/react'
 import { NextURL } from 'next/dist/server/web/next-url'
 import { NextRequest, NextResponse } from 'next/server'
 import { loadEnvFile } from 'node:process'
-import { afterEach, describe, expect, it, vitest } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vitest } from 'vitest'
 import { middleware } from './middleware'
 
 describe('middleware', () => {
   const redirectSpy = vitest.spyOn(NextResponse, 'redirect')
+
+  beforeEach(() => {
+    loadEnvFile('.env.test')
+  })
 
   afterEach(() => {
     cleanup()

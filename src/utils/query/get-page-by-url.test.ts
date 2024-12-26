@@ -1,9 +1,12 @@
 import { loadEnvFile } from 'node:process'
-import { afterEach } from 'node:test'
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { getPageByUrl } from './get-page-by-url'
 
 describe('getPageByUrl', () => {
+  beforeEach(() => {
+    loadEnvFile('.env.test')
+  })
+
   afterEach(() => {
     loadEnvFile('.env.test')
   })
