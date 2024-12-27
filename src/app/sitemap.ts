@@ -8,6 +8,7 @@ type ApiResponse = {
       uid: string
       locale: string
       url: string
+      updated_at: string
       alt_locales: Record<
         string,
         {
@@ -49,6 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return {
       url: `${host}/${defaultLocale}${entry.url}`,
+      lastModified: entry.updated_at,
       alternates: { languages: altLocales },
     }
   })
