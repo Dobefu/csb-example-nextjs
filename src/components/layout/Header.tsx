@@ -13,7 +13,9 @@ export default function Header({ altLocales }: Readonly<Props>) {
   return (
     <header className="flex flex-wrap justify-between gap-4 p-8">
       <nav aria-label="Title" className="text-2xl font-medium">
-        <LocaleLink href="/">{publicRuntimeConfig.appName}</LocaleLink>
+        <LocaleLink className="align-middle leading-none" href="/">
+          {publicRuntimeConfig.appName}
+        </LocaleLink>
       </nav>
 
       <nav aria-label="Locale Switcher">
