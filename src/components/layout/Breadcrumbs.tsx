@@ -7,7 +7,7 @@ type Props = {
 }
 
 export default function Breadcrumbs({ breadcrumbs }: Readonly<Props>) {
-  if (breadcrumbs.length <= 0) {
+  if (breadcrumbs.length <= 1) {
     return
   }
 
