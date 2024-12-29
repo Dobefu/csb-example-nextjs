@@ -30,7 +30,7 @@ function handleLocaleDetection(request: NextRequest): NextURL | undefined {
 
   if (pathnameHasLocale) return
 
-  const headers: Record<string, string> = {}
+  const headers: Record<string, string> = { 'accept-language': 'en' }
   request.headers.forEach((value, key) => (headers[key] = value))
 
   const languages = new Negotiator({ headers }).languages()
