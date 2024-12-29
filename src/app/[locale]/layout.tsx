@@ -5,6 +5,9 @@ import { Geist } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
 
+// Make the layout dynamic, to ensure that CSP nonces get generated on every page load.
+export const dynamic = 'force-dynamic'
+
 const geistSans = Geist({
   display: 'swap',
   subsets: ['latin'],
