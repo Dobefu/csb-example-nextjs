@@ -1,5 +1,6 @@
 import { LocaleContext } from '@/app/[locale]/providers'
 import { Locale } from '@/types/locale'
+import { logWarning } from '@/utils/logger'
 import { useContext } from 'react'
 
 export default function useLocale(): {
@@ -9,11 +10,8 @@ export default function useLocale(): {
   const { locale, translations } = useContext(LocaleContext)
 
   function t(source: string): string {
-    if (!translations) {
-      return source
-    }
-
-    if (!(source in translations)) {
+    if (!translations || !(source in translations)) {
+      logWarning(`The translation source "${source}" has no translation`)
       return source
     }
 
