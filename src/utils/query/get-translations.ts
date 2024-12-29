@@ -2,7 +2,7 @@ import { RoutableEntryResponse } from '@/types/routable-entry-response'
 import { createQueryClient } from './create-query-client'
 
 interface Response {
-  data: unknown | null
+  data: Record<string, string> | null
   error: string | null
 }
 
