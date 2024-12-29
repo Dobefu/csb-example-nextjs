@@ -10,7 +10,7 @@ describe('providers', () => {
 
   it('Renders', () => {
     render(
-      <Providers locale="en">
+      <Providers locale={{ code: 'en', name: 'English' }}>
         <LocaleLink href="/">Test</LocaleLink>
       </Providers>,
     )

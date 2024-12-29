@@ -1,4 +1,5 @@
 import { AltLocale } from '@/types/alt-locale'
+import { Locale } from '@/types/locale'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { loadEnvFile } from 'node:process'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -8,7 +9,12 @@ vi.mock('react', async () => {
   const actual = await vi.importActual('react')
   return {
     ...(actual as object),
-    useContext: () => 'nl',
+    useContext: () => ({
+      locale: {
+        code: 'nl',
+        name: 'Nederlands',
+      } satisfies Locale,
+    }),
   }
 })
 
