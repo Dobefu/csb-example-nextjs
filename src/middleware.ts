@@ -1,7 +1,18 @@
+import { NextURL } from 'next/dist/server/web/next-url'
 import { type NextRequest, NextResponse } from 'next/server'
 import getLocales from './utils/get-locales'
 
 export function middleware(request: NextRequest) {
+  const redirectUrl = handleLocaleDetection(request)
+
+  if (redirectUrl) {
+    return NextResponse.redirect(redirectUrl)
+  }
+
+  return NextResponse.next()
+}
+
+function handleLocaleDetection(request: NextRequest): NextURL | undefined {
   const locale = process.env.DEFAULT_LOCALE ?? 'en'
   const locales = getLocales()
 
@@ -11,10 +22,10 @@ export function middleware(request: NextRequest) {
       pathname.startsWith(`/${locale.code}/`) || pathname === `/${locale.code}`,
   )
 
-  if (pathnameHasLocale) return NextResponse.next()
+  if (pathnameHasLocale) return
 
   request.nextUrl.pathname = `/${locale}${pathname}`
-  return NextResponse.redirect(request.nextUrl)
+  return request.nextUrl
 }
 
 export const config = {
