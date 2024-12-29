@@ -9,11 +9,11 @@ const LocaleLink: React.FC<
     React.HTMLProps<HTMLAnchorElement> &
     Readonly<{ localeOverride?: string }>
 > = (props) => {
-  const locale = useContext(LocaleContext)
+  const { locale } = useContext(LocaleContext)
 
   const newProps = {
     ...props,
-    href: `/${props.localeOverride || locale}${props.href}`,
+    href: `/${props.localeOverride || locale?.code}${props.href}`,
   }
 
   delete newProps.localeOverride

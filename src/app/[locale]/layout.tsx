@@ -1,3 +1,4 @@
+import getLocales from '@/utils/get-locales'
 import type { Metadata } from 'next'
 import getConfig from 'next/config'
 import { TemplateString } from 'next/dist/lib/metadata/types/metadata-types'
@@ -31,10 +32,12 @@ export default async function RootLayout({
   children: React.ReactNode
   params: Promise<{ locale: string }>
 }>) {
-  const locale = (await params).locale
+  const pageLocale = (await params).locale
+  const locales = getLocales()
+  const locale = locales.find((loc) => (loc.code = pageLocale))!
 
   return (
-    <html className="h-full" lang={locale}>
+    <html className="h-full" lang={locale.code}>
       <body
         className={`${geistSans.variable} flex min-h-full flex-col font-sans antialiased`}
       >

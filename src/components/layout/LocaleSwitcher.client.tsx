@@ -18,7 +18,7 @@ type Locale = {
 }
 
 export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
-  const currentLocale = useContext(LocaleContext)
+  const { locale: currentLocale } = useContext(LocaleContext)
   const locales = getLocales()
 
   const router = useRouter()
@@ -33,7 +33,7 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
         (altLocale) => altLocale.locale === locale.code,
       )
 
-      if (!altLocale && locale.code === currentLocale) {
+      if (!altLocale && locale.code === currentLocale?.code) {
         const pathParts = pathname.split('/')
         const pathWithoutLocale = pathParts.slice(2).join('/')
 
@@ -77,7 +77,7 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
         path = `${path}?${searchParams}`
       }
 
-      router.push(`/${newLocale}/${path}`)
+      router.push(`/${newLocale}${path}`)
     },
     [usableLocales, router, searchParams],
   )
@@ -86,7 +86,7 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
     <select
       aria-label="Language"
       className="rounded-lg border p-2 shadow-inner"
-      defaultValue={currentLocale}
+      defaultValue={currentLocale?.code}
       onChange={onLocaleSelected}
     >
       {usableLocales.map((locale) => (
