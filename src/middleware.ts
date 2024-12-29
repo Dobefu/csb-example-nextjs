@@ -46,6 +46,13 @@ function getCspResponse(request: Request): NextResponse {
     'upgrade-insecure-requests': [],
   }
 
+  // NextJS inlines styles for the dev indicators in development mode.
+  // Unfortunately, they do not use nonces, so we have to use unsafe-inline.
+  if (process.env.NODE_ENV !== 'production') {
+    csp['style-src'].splice(-1)
+    csp['style-src'].push("'unsafe-inline'")
+  }
+
   const cspString = parseCsp(csp)
 
   const requestHeaders = new Headers(request.headers)
