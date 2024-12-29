@@ -1,3 +1,5 @@
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
 import { NextURL } from 'next/dist/server/web/next-url'
 import { type NextRequest, NextResponse } from 'next/server'
 import getLocales from './utils/get-locales'
@@ -15,8 +17,10 @@ export function middleware(request: NextRequest) {
 }
 
 function handleLocaleDetection(request: NextRequest): NextURL | undefined {
-  const locale = process.env.DEFAULT_LOCALE ?? 'en'
+  const defaultLocale = process.env.DEFAULT_LOCALE ?? 'en'
   const locales = getLocales()
+
+  const localeCodes = locales.map((locale) => locale.code)
 
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(
@@ -26,7 +30,13 @@ function handleLocaleDetection(request: NextRequest): NextURL | undefined {
 
   if (pathnameHasLocale) return
 
-  request.nextUrl.pathname = `/${locale}${pathname}`
+  const headers: Record<string, string> = {}
+  request.headers.forEach((value, key) => (headers[key] = value))
+
+  const languages = new Negotiator({ headers }).languages()
+  const matchedLocale = match(languages, localeCodes, defaultLocale)
+
+  request.nextUrl.pathname = `/${matchedLocale}${pathname}`
   return request.nextUrl
 }
 
