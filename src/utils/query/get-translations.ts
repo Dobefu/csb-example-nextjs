@@ -13,7 +13,14 @@ export async function getTranslations(locale: string): Promise<Response> {
   if (!endpoint) {
     return {
       data: null,
-      error: 'CS_API_ENDPOINT is not valid',
+      error: 'CS_API_ENDPOINT is not valid or missing',
+    } satisfies RoutableEntryResponse
+  }
+
+  if (!deliveryToken) {
+    return {
+      data: null,
+      error: 'CS_DELIVERY_TOKEN is not valid or missing',
     } satisfies RoutableEntryResponse
   }
 
@@ -29,6 +36,7 @@ export async function getTranslations(locale: string): Promise<Response> {
           Authorization: deliveryToken,
         },
       })
+
       return await response.json()
     },
   }
