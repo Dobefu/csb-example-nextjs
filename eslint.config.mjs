@@ -1,5 +1,6 @@
 import { FlatCompat } from '@eslint/eslintrc'
 import pluginQuery from '@tanstack/eslint-plugin-query'
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import pluginReact from 'eslint-plugin-react'
 
 const compat = new FlatCompat({
@@ -12,6 +13,7 @@ const eslintConfig = [
   }),
   ...pluginQuery.configs['flat/recommended'],
   {
+    ...pluginJsxA11y.flatConfigs.strict,
     ...pluginReact.configs.flat.recommended,
     rules: {
       'react/boolean-prop-naming': ['warn'],
