@@ -12,7 +12,7 @@ export default function useLocale(): {
   function t(source: string): string {
     if (!translations || !(source in translations)) {
       logWarning(`The translation source "${source}" has no translation`)
-      return source
+      return `⚠ ${source} ⚠`
     }
 
     return translations[source]

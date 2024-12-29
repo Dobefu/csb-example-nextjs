@@ -1,11 +1,11 @@
 'use client'
 
-import { LocaleContext } from '@/app/[locale]/providers'
+import useLocale from '@/hooks/use-locale'
 import { AltLocale } from '@/types/alt-locale'
 import getLocales from '@/utils/get-locales'
 import { logError } from '@/utils/logger'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, useCallback, useContext, useMemo } from 'react'
+import { ChangeEvent, useCallback, useMemo } from 'react'
 
 type Props = {
   altLocales: AltLocale[]
@@ -18,7 +18,7 @@ type Locale = {
 }
 
 export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
-  const { locale: currentLocale } = useContext(LocaleContext)
+  const { locale: currentLocale, t } = useLocale()
   const locales = getLocales()
 
   const router = useRouter()
@@ -48,13 +48,13 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
 
       newLocales.push({
         code: locale.code,
-        name: locale.name,
+        name: t(`languages.${locale.code}`),
         url: altLocale.url,
       })
     }
 
     return newLocales
-  }, [currentLocale, altLocales, locales, pathname])
+  }, [t, currentLocale, altLocales, locales, pathname])
 
   const onLocaleSelected = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
@@ -84,7 +84,7 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
 
   return (
     <select
-      aria-label="Language"
+      aria-label={t('locale_switcher.label')}
       className="rounded-lg border p-2 shadow-inner"
       defaultValue={currentLocale?.code}
       onChange={onLocaleSelected}

@@ -25,6 +25,6 @@ describe('useLocale', () => {
     expect(locale).toBeDefined()
     expect(t).toBeDefined()
     expect(t('test.source')).toBe('Translation')
-    expect(t('test.bogus')).toBe('test.bogus')
+    expect(t('test.bogus')).toBe('⚠ test.bogus ⚠')
   })
 })
