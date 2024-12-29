@@ -1,7 +1,7 @@
 'use client'
 
 import { Locale } from '@/types/locale'
-import React, { createContext } from 'react'
+import React, { createContext, useMemo } from 'react'
 
 export const LocaleContext = createContext<{
   locale?: Locale
@@ -17,8 +17,13 @@ export default function Providers({
   locale: Locale
   translations: Record<string, string> | null
 }>) {
+  const localeContextValue = useMemo(
+    () => ({ locale, translations }),
+    [locale, translations],
+  )
+
   return (
-    <LocaleContext.Provider value={{ locale, translations }}>
+    <LocaleContext.Provider value={localeContextValue}>
       {children}
     </LocaleContext.Provider>
   )
