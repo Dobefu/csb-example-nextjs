@@ -10,16 +10,24 @@
 
 ## Getting Started
 
-Install the dependencies:
+- Copy `.env.example` to `.env`
 
-```bash
-pnpm i
-```
+  ```bash
+  cp .env.example .env
+  ```
 
-Run the development server:
+- Fill in all the fields in the `.env` file
 
-```bash
-pnpm dev
-```
+- Install the dependencies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  ```bash
+  pnpm i
+  ```
+
+- Run the development server
+
+  ```bash
+  pnpm dev
+  ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser of choice to see the result.
