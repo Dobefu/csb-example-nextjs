@@ -28,7 +28,7 @@
     "@tanstack/eslint-plugin-query": "^5.62.9",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.3",
