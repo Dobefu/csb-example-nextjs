@@ -52,7 +52,7 @@ function getCspResponse(request: Request): NextResponse {
     'object-src': ["'none'"],
     'base-uri': ["'self'"],
     'form-action': ["'self'"],
-    'frame-ancestors': ["'none'"],
+    'frame-ancestors': ['https://*.contentstack.com'],
   }
 
   // NextJS inlines styles for the dev indicators in development mode.
