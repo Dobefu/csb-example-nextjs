@@ -35,8 +35,10 @@ export default async function Home({ params }: Readonly<Props>) {
     return notFound()
   }
 
+  const cslpBase = `${data.entry.content_type}.${data.entry.uid}.${locale}`
+
   return (
-    <h1 className="text-xl font-medium">
+    <h1 className="text-xl font-medium" data-cslp={`${cslpBase}.title`}>
       {data.entry.seo?.title ?? data.entry.title}
     </h1>
   )
