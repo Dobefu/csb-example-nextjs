@@ -58,7 +58,7 @@ function getCspResponse(request: Request): NextResponse {
   // NextJS inlines styles for the dev indicators in development mode.
   // Unfortunately, they do not use nonces, so we have to use unsafe-inline.
   if (process.env.NODE_ENV !== 'production') {
-    csp['style-src'].splice(-1)
+    csp['style-src'].splice(1, 1)
     csp['style-src'].push("'unsafe-inline'")
     csp['upgrade-insecure-requests'] = []
   }
