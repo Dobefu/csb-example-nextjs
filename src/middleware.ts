@@ -25,7 +25,10 @@ function handleLocaleDetection(request: NextRequest): NextURL | undefined {
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(
     (locale: { code: string; name: string }) =>
-      pathname.startsWith(`/${locale.code}/`) || pathname === `/${locale.code}`,
+      pathname.startsWith(`/${locale.code}/`) ||
+      pathname === `/${locale.code}` ||
+      pathname.startsWith(`/preview/${locale.code}/`) ||
+      pathname === `/preview/${locale.code}`,
   )
 
   if (pathnameHasLocale) return
@@ -37,6 +40,11 @@ function handleLocaleDetection(request: NextRequest): NextURL | undefined {
   const matchedLocale = match(languages, localeCodes, defaultLocale)
 
   request.nextUrl.pathname = `/${matchedLocale}${pathname}`
+
+  if (request.nextUrl.pathname.startsWith('/preview')) {
+    request.nextUrl.pathname = `preview/${request.nextUrl.pathname}`
+  }
+
   return request.nextUrl
 }
 
