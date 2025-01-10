@@ -1,6 +1,6 @@
 'use client'
 
-import { LocaleContext } from '@/app/[locale]/providers'
+import { LocaleContext } from '@/components/layout/providers'
 import NextLink, { LinkProps } from 'next/link'
 import React, { useContext } from 'react'
 
