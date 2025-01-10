@@ -19,6 +19,7 @@ export default defineConfig({
         'tailwind.config.ts',
         'src/fetch-locales.ts',
         '**/layout.tsx',
+        '**/BaseRootLayout.tsx',
         'src/types/**',
       ],
       thresholds: {
