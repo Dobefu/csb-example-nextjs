@@ -2,6 +2,7 @@ export interface Entry {
   ACL: unknown
   _in_progress: boolean
   _version: number
+  content_type: string
   created_at: string
   created_by: string
   locale: string
