@@ -3,9 +3,9 @@
 import ContentstackLivePreview from '@contentstack/live-preview-utils'
 import { useEffect } from 'react'
 
-interface Props {
+type Props = Readonly<{
   apiKey: string
-}
+}>
 
 export default function LivePreviewInit({ apiKey }: Props) {
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function LivePreviewInit({ apiKey }: Props) {
         environment: 'production',
       },
     })
-  }, [])
+  }, [apiKey])
 
   return <>{}</>
 }
