@@ -16,10 +16,6 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
   let entryUid = (await searchParams)['entry_uid'] ?? ''
   const previewTimestamp = (await searchParams)['preview_timestamp'] ?? ''
   const releaseId = (await searchParams)['release_id'] ?? ''
-  //
-  // if (!previewToken) {
-  //   return <LivePreviewInit apiKey={process.env.CS_API_KEY ?? ''} />
-  // }
 
   const locale = (await params).locale
   const stack = getContentstackStack(true)
