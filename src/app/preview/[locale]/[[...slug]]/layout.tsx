@@ -1,6 +1,8 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
+import { headers } from 'next/headers'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 // Make the layout dynamic, to ensure that CSP nonces get generated on every page load.
@@ -12,6 +14,13 @@ type Props = {
 }
 
 export default async function Layout({ children }: Readonly<Props>) {
+  const headersList = await headers()
+  const dest = headersList.get('sec-fetch-dest')
+
+  if (dest !== 'iframe') {
+    redirect('/')
+  }
+
   return (
     <div className="flex flex-1 flex-col justify-between gap-4">
       <Header altLocales={[]} />
