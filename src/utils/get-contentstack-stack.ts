@@ -4,7 +4,7 @@ export default function getContentstackStack(withLivePreview: boolean): Stack {
   return Contentstack.Stack({
     api_key: process.env.CS_API_KEY ?? '',
     delivery_token: process.env.CS_DELIVERY_TOKEN ?? '',
-    environment: 'production',
+    environment: process.env.CS_ENVIRONMENT ?? '',
     region: Contentstack.Region.EU,
     live_preview: withLivePreview
       ? ({
