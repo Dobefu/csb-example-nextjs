@@ -59,8 +59,11 @@ jobs:
           touch .env.test
           echo "APP_NAME=\"Testing\"" >> .env.test
           echo "APP_HOST=\"${{ vars.APP_HOST }}\"" >> .env.test
+          echo "CS_API_KEY=\"${{ vars.CS_API_KEY }}\"" >> .env.test
           echo "CS_DELIVERY_TOKEN=\"${{ vars.CS_DELIVERY_TOKEN }}\"" >> .env.test
+          echo "CS_PREVIEW_TOKEN=\"${{ vars.CS_PREVIEW_TOKEN }}\"" >> .env.test
           echo "CS_API_ENDPOINT=\"${{ vars.CS_API_ENDPOINT }}\"" >> .env.test
+          echo "CS_ENVIRONMENT=\"${{ vars.CS_ENVIRONMENT }}\"" >> .env.test
           echo "DISABLE_QUERY_CACHE=0" >> .env.test
 
       - name: Enable PNPM
