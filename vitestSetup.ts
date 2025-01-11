@@ -3,6 +3,8 @@ import { vi } from 'vitest'
 
 loadEnvFile('.env.test')
 
+global.ResizeObserver = vi.fn()
+
 vi.mock('next/config', () => ({
   default: () => {
     return {
