@@ -5,9 +5,10 @@ import { useEffect } from 'react'
 
 type Props = Readonly<{
   apiKey: string
+  environment: string
 }>
 
-export default function LivePreviewInit({ apiKey }: Props) {
+export default function LivePreviewInit({ apiKey, environment }: Props) {
   useEffect(() => {
     ContentstackLivePreview.init({
       ssr: true,
@@ -15,10 +16,10 @@ export default function LivePreviewInit({ apiKey }: Props) {
       mode: 'builder',
       stackDetails: {
         apiKey: apiKey,
-        environment: 'production',
+        environment,
       },
     })
-  }, [apiKey])
+  }, [apiKey, environment])
 
   return <>{}</>
 }

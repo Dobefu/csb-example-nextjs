@@ -56,11 +56,21 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
     /* v8 ignore start */
   } catch (e) {
     logError(e as string)
-    return <LivePreviewInit apiKey={process.env.CS_API_KEY ?? ''} />
+    return (
+      <LivePreviewInit
+        apiKey={process.env.CS_API_KEY ?? ''}
+        environment={process.env.CS_ENVIRONMENT ?? ''}
+      />
+    )
   }
 
   if (!data?.entry) {
-    return <LivePreviewInit apiKey={process.env.CS_API_KEY ?? ''} />
+    return (
+      <LivePreviewInit
+        apiKey={process.env.CS_API_KEY ?? ''}
+        environment={process.env.CS_ENVIRONMENT ?? ''}
+      />
+    )
   }
 
   const cslpBase = `${contentTypeUid}.${entryUid}.${locale}`
@@ -68,7 +78,10 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
 
   return (
     <>
-      <LivePreviewInit apiKey={process.env.CS_API_KEY ?? ''} />
+      <LivePreviewInit
+        apiKey={process.env.CS_API_KEY ?? ''}
+        environment={process.env.CS_ENVIRONMENT ?? ''}
+      />
 
       <h1
         className="text-xl font-medium"
