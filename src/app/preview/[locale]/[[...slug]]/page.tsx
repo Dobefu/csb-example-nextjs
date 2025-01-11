@@ -53,6 +53,7 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
         .toJSON()
         .fetch(),
     }
+    /* v8 ignore start */
   } catch (e) {
     logError(e as string)
     return <LivePreviewInit apiKey={process.env.CS_API_KEY ?? ''} />
@@ -77,4 +78,5 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
       </h1>
     </>
   )
+  /* v8 ignore stop */
 }
