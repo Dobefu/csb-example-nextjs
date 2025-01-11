@@ -28,6 +28,7 @@ describe('get-contentstack-stack', () => {
     delete process.env.CS_API_KEY
     delete process.env.CS_DELIVERY_TOKEN
     delete process.env.CS_PREVIEW_TOKEN
+    delete process.env.CS_ENVIRONMENT
 
     const stack = getContentstackStack(true)
 
