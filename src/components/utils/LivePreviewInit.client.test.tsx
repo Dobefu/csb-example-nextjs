@@ -8,7 +8,7 @@ describe('LivePreviewInit', () => {
   })
 
   it('Renders', () => {
-    render(<LivePreviewInit apiKey="bogus" />)
+    render(<LivePreviewInit apiKey="bogus" environment="bogus" />)
 
     expect(screen).toBeDefined()
   })
