@@ -46,7 +46,7 @@ function handleLocaleDetection(request: NextRequest): NextURL | undefined {
       .replaceAll(`/${matchedLocale}`, '')
       .startsWith('/preview')
   ) {
-    request.nextUrl.pathname = `preview/${matchedLocale}${pathname.replace(`/preview`, '')}`
+    request.nextUrl.pathname = `preview/${matchedLocale}${pathname.replace('/preview', '')}`
   }
 
   return request.nextUrl
