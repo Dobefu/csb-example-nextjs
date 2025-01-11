@@ -37,7 +37,9 @@ export default async function Home({ params }: Readonly<Props>) {
 
   return (
     <h1 className="text-xl font-medium">
-      {data.entry.seo?.title ?? data.entry.title}
+      {data.entry.seo?.title
+        ? (data.entry.seo?.title ?? data.entry.title)
+        : data.entry.title}
     </h1>
   )
 }
