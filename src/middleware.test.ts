@@ -24,12 +24,28 @@ describe('middleware', () => {
 
     middleware(new NextRequest(new URL('http://localhost:3000/en/homepage')))
     expect(redirectSpy).not.toHaveBeenCalled()
+
+    middleware(
+      new NextRequest(new URL('http://localhost:3000/preview/en/homepage')),
+    )
+    expect(redirectSpy).not.toHaveBeenCalled()
   })
 
   it('redirects for invalid locales', () => {
     middleware(new NextRequest(new URL('http://localhost:3000/invalid/')))
     expect(redirectSpy).toHaveBeenCalledWith(
       new NextURL('http://localhost:3000/en/invalid/', {
+        headers: {},
+      }),
+    )
+
+    redirectSpy.mockReset()
+
+    middleware(
+      new NextRequest(new URL('http://localhost:3000/preview/invalid/')),
+    )
+    expect(redirectSpy).toHaveBeenCalledWith(
+      new NextURL('http://localhost:3000/preview/en/invalid/', {
         headers: {},
       }),
     )
