@@ -57,7 +57,6 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
   }, [t, currentLocale, altLocales, locales, pathname])
 
   const isDisabled = useMemo(() => {
-    console.log(searchParams.get('live_preview'))
     if (!!searchParams.get('live_preview') && !altLocales.length) {
       return true
     }
