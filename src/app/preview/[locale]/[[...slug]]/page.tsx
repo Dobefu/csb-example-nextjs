@@ -87,9 +87,7 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
         className="text-xl font-medium"
         data-cslp={`${cslpBase}.${titleField}`}
       >
-        {data.entry.seo?.title
-          ? (data.entry.seo?.title ?? data.entry.title)
-          : data.entry.title}
+        {data.entry.seo?.title ? data.entry.seo.title : data.entry.title}
       </h1>
     </>
   )
