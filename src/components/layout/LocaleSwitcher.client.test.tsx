@@ -76,11 +76,20 @@ describe('LocaleSwitcher', () => {
   })
 
   it('Redirects with a query parameter', async () => {
-    process.env.MOCK_PATHNAME = '/?test=1'
+    process.env.MOCK_PATHNAME = '/nl?test=1'
 
     render(<LocaleSwitcher altLocales={mockAltLocales} />)
 
     fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
     expect(screen.getAllByRole('option').length).toBe(2)
+  })
+
+  it('is disabled in the live preview', async () => {
+    process.env.MOCK_PATHNAME = '?live_preview=bogus'
+
+    render(<LocaleSwitcher altLocales={[]} />)
+
+    fireEvent.change(screen.getByRole<HTMLSelectElement>('combobox'))
+    expect(screen.getByRole<HTMLSelectElement>('combobox').disabled).toBe(true)
   })
 })

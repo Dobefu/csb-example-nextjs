@@ -56,6 +56,15 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
     return newLocales
   }, [t, currentLocale, altLocales, locales, pathname])
 
+  const isDisabled = useMemo(() => {
+    console.log(searchParams.get('live_preview'))
+    if (!!searchParams.get('live_preview') && !altLocales.length) {
+      return true
+    }
+
+    return false
+  }, [altLocales, searchParams])
+
   const onLocaleSelected = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const newLocale = e.target.value
@@ -87,6 +96,7 @@ export default function LocaleSwitcher({ altLocales }: Readonly<Props>) {
       aria-label={t('locale_switcher.label')}
       className="rounded-lg border p-2 shadow-inner"
       defaultValue={currentLocale?.code}
+      disabled={isDisabled}
       onChange={onLocaleSelected}
     >
       {usableLocales.map((locale) => (
