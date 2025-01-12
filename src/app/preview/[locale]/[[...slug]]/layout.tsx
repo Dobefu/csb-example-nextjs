@@ -13,12 +13,13 @@ type Props = {
   params: Promise<{ locale: string; slug?: string[] }>
 }
 
-export default async function Layout({ children }: Readonly<Props>) {
+export default async function Layout({ children, params }: Readonly<Props>) {
+  const locale = (await params).locale
   const headersList = await headers()
   const dest = headersList.get('sec-fetch-dest')
 
   if (dest !== 'iframe') {
-    redirect('/')
+    redirect(`/${locale}`)
   }
 
   return (

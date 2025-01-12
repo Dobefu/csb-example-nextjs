@@ -55,7 +55,7 @@ export default async function Home({ params, searchParams }: Readonly<Props>) {
     }
     /* v8 ignore start */
   } catch (e) {
-    logError(e as string)
+    logError((e as { error_message: string }).error_message as string)
     return (
       <LivePreviewInit
         apiKey={process.env.CS_API_KEY ?? ''}
