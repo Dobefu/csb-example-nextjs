@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@contentstack/live-preview-utils':
-        specifier: ^3.0.2
-        version: 3.0.2(@preact/signals-core@1.8.0)(csstype@3.1.3)
+        specifier: ^3.1.0
+        version: 3.1.0(@preact/signals-core@1.8.0)(csstype@3.1.3)
       '@formatjs/intl-localematcher':
         specifier: ^0.5.10
         version: 0.5.10
@@ -214,8 +214,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@contentstack/live-preview-utils@3.0.2':
-    resolution: {integrity: sha512-YJLCxO5YG1aJ924kj8pKC9yaRnzlo07W/dML3t/X0NqqCLcJL2zxP1xRu0dHnMNP7Dcqu1yqcm0FuqBg0KVFoA==}
+  '@contentstack/live-preview-utils@3.1.0':
+    resolution: {integrity: sha512-IqkLhgT0/lsqGDq0Ze9+VVsQGcZry3OccxN9PsUWPDRN8T6OUmLHcXUa0PsHBlDRYpSsGQsejaFGxKBnAj2I/Q==}
 
   '@contentstack/utils@1.3.15':
     resolution: {integrity: sha512-m/FNx8LwSquMWo+KQ+zyBALEQTeFuldpLkqTrWXPEtmkPMCNnrF3aLcYHmcpLs7B1nux3wPRD6njhMDUU57giQ==}
@@ -634,8 +634,8 @@ packages:
   '@preact/signals-core@1.8.0':
     resolution: {integrity: sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA==}
 
-  '@preact/signals@1.3.1':
-    resolution: {integrity: sha512-nNvSF2O7RDzxp1Rm7SkA5QhN1a2kN8pGE8J5o6UjgDof0F0Vlg6d6HUUVxxqZ1uJrN9xnH2DpL6rpII3Es0SsQ==}
+  '@preact/signals@1.3.2':
+    resolution: {integrity: sha512-naxcJgUJ6BTOROJ7C3QML7KvwKwCXQJYTc5L/b0eEsdYgPB6SxwoQ1vDGcS0Q7GVjAenVq/tXrybVdFShHYZWg==}
     peerDependencies:
       preact: 10.x
 
@@ -1237,12 +1237,12 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  deepsignal@1.5.0:
-    resolution: {integrity: sha512-bFywDpBUUWMs576H2dgLFLLFuQ/UWXbzHfKD98MZTfGsl7+twIzvz4ihCNrRrZ/Emz3kqJaNIAp5eBWUEWhnAw==}
+  deepsignal@1.6.0:
+    resolution: {integrity: sha512-oplhhOSfBRKmx96B0PzbhRaX2W7iDpH6BEqvyGLIZPO2pdHQD+/P3u4Z8wi/sKXjCE7ht8C7ULTEzLSJbgwccA==}
     peerDependencies:
-      '@preact/signals': ^1.1.4
+      '@preact/signals': ^1.1.4 || ^2.0.0
       '@preact/signals-core': ^1.5.1
-      '@preact/signals-react': ^1.3.8 || ^2.0.0
+      '@preact/signals-react': ^1.3.8 || ^2.0.0 || ^3.0.0
       preact: ^10.16.0
     peerDependenciesMeta:
       '@preact/signals':
@@ -3030,12 +3030,12 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@contentstack/live-preview-utils@3.0.2(@preact/signals-core@1.8.0)(csstype@3.1.3)':
+  '@contentstack/live-preview-utils@3.1.0(@preact/signals-core@1.8.0)(csstype@3.1.3)':
     dependencies:
       '@preact/compat': 17.1.2(preact@10.25.4)
-      '@preact/signals': 1.3.1(preact@10.25.4)
+      '@preact/signals': 1.3.2(preact@10.25.4)
       classnames: 2.5.1
-      deepsignal: 1.5.0(@preact/signals-core@1.8.0)(@preact/signals@1.3.1(preact@10.25.4))(preact@10.25.4)
+      deepsignal: 1.6.0(@preact/signals-core@1.8.0)(@preact/signals@1.3.2(preact@10.25.4))(preact@10.25.4)
       goober: 2.1.16(csstype@3.1.3)
       lodash-es: 4.17.21
       mustache: 4.2.0
@@ -3341,7 +3341,7 @@ snapshots:
 
   '@preact/signals-core@1.8.0': {}
 
-  '@preact/signals@1.3.1(preact@10.25.4)':
+  '@preact/signals@1.3.2(preact@10.25.4)':
     dependencies:
       '@preact/signals-core': 1.8.0
       preact: 10.25.4
@@ -4003,9 +4003,9 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  deepsignal@1.5.0(@preact/signals-core@1.8.0)(@preact/signals@1.3.1(preact@10.25.4))(preact@10.25.4):
+  deepsignal@1.6.0(@preact/signals-core@1.8.0)(@preact/signals@1.3.2(preact@10.25.4))(preact@10.25.4):
     optionalDependencies:
-      '@preact/signals': 1.3.1(preact@10.25.4)
+      '@preact/signals': 1.3.2(preact@10.25.4)
       '@preact/signals-core': 1.8.0
       preact: 10.25.4
 
