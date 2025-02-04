@@ -31,7 +31,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Enable PNPM
+      - name: Install the latest version of Corepack
+        run: npm i -g corepack@latest
+
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Install dependencies
@@ -66,7 +69,10 @@ jobs:
           echo "CS_ENVIRONMENT=\"${{ vars.CS_ENVIRONMENT }}\"" >> .env.test
           echo "DISABLE_QUERY_CACHE=0" >> .env.test
 
-      - name: Enable PNPM
+      - name: Install the latest version of Corepack
+        run: npm i -g corepack@latest
+
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Install dependencies
