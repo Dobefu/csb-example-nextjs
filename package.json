@@ -28,7 +28,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@tailwindcss/postcss": "^4.0.0",
-    "@tanstack/eslint-plugin-query": "^5.64.2",
+    "@tanstack/eslint-plugin-query": "^5.68.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
