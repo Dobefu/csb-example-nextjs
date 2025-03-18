@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@contentstack/live-preview-utils':
-        specifier: ^3.1.1
-        version: 3.1.1(@preact/signals-core@1.8.0)(csstype@3.1.3)
+        specifier: ^3.1.2
+        version: 3.1.2(@preact/signals-core@1.8.0)(csstype@3.1.3)
       '@formatjs/intl-localematcher':
         specifier: ^0.5.10
         version: 0.5.10
@@ -352,8 +352,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@contentstack/live-preview-utils@3.1.1':
-    resolution: {integrity: sha512-4PzJFbppegESPigc9XxaNqn5KYmMsZxYahiLiQJIA4+ilDyaYrPnjUeR6if2s87SDQa44i4eebNUvnWJWfuOvw==}
+  '@contentstack/live-preview-utils@3.1.2':
+    resolution: {integrity: sha512-mJiW8uKDpRQyYFPQetgL8wHrLokHoYA6RVSrP5DX4Bteqoku49M/HD8VLCDzhoZryhHpOxD/Olpms/tdr1Xj+Q==}
 
   '@contentstack/utils@1.3.19':
     resolution: {integrity: sha512-8xZJXBvdYlmXr480Iu162TFwP1LrDMGy0YeEjFrOTIgWZnKDJPwyFGkqaIkTxCbcLw2yrMhsxyZEy4LFrvVFuQ==}
@@ -4016,7 +4016,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@contentstack/live-preview-utils@3.1.1(@preact/signals-core@1.8.0)(csstype@3.1.3)':
+  '@contentstack/live-preview-utils@3.1.2(@preact/signals-core@1.8.0)(csstype@3.1.3)':
     dependencies:
       '@preact/compat': 17.1.2(preact@10.19.5)
       '@preact/signals': 1.2.2(preact@10.19.5)
