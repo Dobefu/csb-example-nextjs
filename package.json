@@ -16,7 +16,7 @@
   "dependencies": {
     "@contentstack/live-preview-utils": "^3.1.1",
     "@formatjs/intl-localematcher": "^0.5.10",
-    "@tanstack/react-query": "^5.67.2",
+    "@tanstack/react-query": "^5.68.0",
     "clsx": "^2.1.1",
     "contentstack": "^3.24.3",
     "negotiator": "^1.0.0",
