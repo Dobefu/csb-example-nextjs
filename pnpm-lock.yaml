@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@contentstack/live-preview-utils':
-        specifier: ^3.1.2
-        version: 3.1.2(@preact/signals-core@1.8.0)(csstype@3.1.3)
+        specifier: ^3.2.0
+        version: 3.2.0(@preact/signals-core@1.8.0)(csstype@3.1.3)
       '@formatjs/intl-localematcher':
         specifier: ^0.6.1
         version: 0.6.1
@@ -373,8 +373,8 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@contentstack/live-preview-utils@3.1.2':
-    resolution: {integrity: sha512-mJiW8uKDpRQyYFPQetgL8wHrLokHoYA6RVSrP5DX4Bteqoku49M/HD8VLCDzhoZryhHpOxD/Olpms/tdr1Xj+Q==}
+  '@contentstack/live-preview-utils@3.2.0':
+    resolution: {integrity: sha512-8JjtolDhFSWXmajafc2wPShppNTYQYg67u9Ko1oF7R/MZk5TftK/Ov19XPA8DH2fmKBlhY2GOum5IWd431ev8A==}
 
   '@contentstack/utils@1.3.20':
     resolution: {integrity: sha512-WXkFv5uKrAMs21NPCWe3+7KHYfagenS8rv1/yCDsZ+uV1FvKkzst+MiU1+hcaWHi0E6QaPpYDcxpiltUHo5TSA==}
@@ -1252,6 +1252,9 @@ packages:
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
 
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
 
@@ -1744,6 +1747,9 @@ packages:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
 
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
+
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -1839,6 +1845,9 @@ packages:
 
   dom-accessibility-api@0.5.16:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
+
+  dompurify@3.2.5:
+    resolution: {integrity: sha512-mLPd29uoRe9HpvwP2TxClGQBzGXeEC/we/q+bFlmPPmj2p2Ugl3r6ATu/UU1v77DXNcehiBg9zsr1dREyA/dJQ==}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -2196,6 +2205,9 @@ packages:
 
   get-tsconfig@4.10.0:
     resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
+
+  get-xpath@3.3.0:
+    resolution: {integrity: sha512-AKbHVEHSlSDS9AJDmjfSxV010xSVRFzkS4UkGCb8CaGvorp83GCuKwcmzF/64CVp3M5wjgy9tc6y1uR2V+c5Xw==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -4131,12 +4143,15 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@contentstack/live-preview-utils@3.1.2(@preact/signals-core@1.8.0)(csstype@3.1.3)':
+  '@contentstack/live-preview-utils@3.2.0(@preact/signals-core@1.8.0)(csstype@3.1.3)':
     dependencies:
       '@preact/compat': 17.1.2(preact@10.19.5)
       '@preact/signals': 1.2.2(preact@10.19.5)
       classnames: 2.5.1
+      dayjs: 1.11.13
       deepsignal: 1.6.0(@preact/signals-core@1.8.0)(@preact/signals@1.2.2(preact@10.19.5))(preact@10.19.5)
+      dompurify: 3.2.5
+      get-xpath: 3.3.0
       goober: 2.1.16(csstype@3.1.3)
       lodash-es: 4.17.21
       mustache: 4.2.0
@@ -4943,6 +4958,9 @@ snapshots:
 
   '@types/stack-utils@2.0.3': {}
 
+  '@types/trusted-types@2.0.7':
+    optional: true
+
   '@types/yargs-parser@21.0.3': {}
 
   '@types/yargs@17.0.33':
@@ -5534,6 +5552,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  dayjs@1.11.13: {}
+
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
@@ -5588,6 +5608,10 @@ snapshots:
       esutils: 2.0.3
 
   dom-accessibility-api@0.5.16: {}
+
+  dompurify@3.2.5:
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
 
   dunder-proto@1.0.1:
     dependencies:
@@ -6121,6 +6145,8 @@ snapshots:
   get-tsconfig@4.10.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  get-xpath@3.3.0: {}
 
   glob-parent@5.1.2:
     dependencies:
