@@ -14,7 +14,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@contentstack/live-preview-utils": "^3.2.5",
+    "@contentstack/live-preview-utils": "^4.0.1",
     "@formatjs/intl-localematcher": "^0.6.1",
     "@tanstack/react-query": "^5.83.0",
     "clsx": "^2.1.1",
