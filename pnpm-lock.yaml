@@ -113,8 +113,8 @@ importers:
         specifier: ^0.6.14
         version: 0.6.14(@trivago/prettier-plugin-sort-imports@5.2.2(prettier@3.6.2))(prettier-plugin-organize-attributes@1.0.0(prettier@3.6.2))(prettier@3.6.2)
       tailwindcss:
-        specifier: ^4.1.11
-        version: 4.1.11
+        specifier: ^4.1.14
+        version: 4.1.14
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -3628,9 +3628,6 @@ packages:
 
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
-
-  tailwindcss@4.1.11:
-    resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
 
   tailwindcss@4.1.14:
     resolution: {integrity: sha512-b7pCxjGO98LnxVkKjaZSDeNuljC4ueKUddjENJOADtubtdo8llTaJy7HwBMeLNSSo2N5QIAgklslK1+Ir8r6CA==}
@@ -7995,8 +7992,6 @@ snapshots:
       '@pkgr/core': 0.2.9
 
   tailwind-merge@3.3.1: {}
-
-  tailwindcss@4.1.11: {}
 
   tailwindcss@4.1.14: {}
 
